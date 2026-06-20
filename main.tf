@@ -220,7 +220,7 @@ resource "aws_security_group" "ec2_security_group" {
 
 # EC2 Instance in Public Subnet
 resource "aws_instance" "web_server" {
-  ami                    = data.aws_ami.hc-base-ubuntu-2404["amd64"].id
+  ami                    = data.aws_ami.hc-base-ubuntu-2404.id
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
   subnet_id              = aws_subnet.public[0].id
