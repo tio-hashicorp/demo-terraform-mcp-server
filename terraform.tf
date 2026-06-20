@@ -1,10 +1,11 @@
 terraform {
   cloud {
-    organization = "hashicorp-wwtfo-demo-platform-prod"
+#    organization = "hashicorp-wwtfo-demo-platform-prod"
+    organization = "innovation-lab"
 
     workspaces {
-      name    = "<insert-workspace-name>" # must be unique across the organization
-      project = "<DDR project name>"      # should be either your **`hc-<username>`** or **`ibm-<username>`** DDR project name
+      name    = "ai_lab1" # must be unique across the organization
+      project = "sandbox"      # should be either your **`hc-<username>`** or **`ibm-<username>`** DDR project name
     }
   }
 
