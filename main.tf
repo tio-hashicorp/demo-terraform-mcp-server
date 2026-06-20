@@ -166,17 +166,18 @@ data "aws_availability_zones" "available" {
 
 # Get AMI ID from HashiCorp Security
 data "aws_ami" "hc-base-ubuntu-2404" {
-  for_each = toset(["amd64", "arm64"])
   filter {
     name   = "name"
-    values = [format("hc-base-ubuntu-2404-%s-*", each.value)]
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
   }
+
   filter {
     name   = "state"
     values = ["available"]
   }
+
   most_recent = true
-  owners      = ["888995627335"] # ami-prod account
+  owners      = ["099720109477"] # ami-prod account
 }
 
 # Security Group for EC2 instance
